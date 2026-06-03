@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
 --bg:#050505;
 --card:#111111;
@@ -41,9 +41,9 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 background:rgba(5,5,5,.9);
-backdrop-filter:blur(10px);
+backdrop-filter:blur(12px);
 border-bottom:1px solid var(--border);
-z-index:1000;
+z-index:999;
 }
 
 .logo{
@@ -112,7 +112,9 @@ color:#bdbdbd;
 }
 
 .btn{
-display:inline-block;
+display:inline-flex;
+align-items:center;
+justify-content:center;
 margin-top:40px;
 padding:16px 34px;
 background:white;
@@ -133,7 +135,7 @@ padding:120px 8%;
 
 h2{
 font-size:clamp(2rem,5vw,4rem);
-margin-bottom:25px;
+margin-bottom:30px;
 }
 
 .about p{
@@ -166,31 +168,16 @@ height:220px;
 display:flex;
 align-items:center;
 justify-content:center;
-background:linear-gradient(135deg,#1b1b1b,#0f0f0f);
+background:linear-gradient(135deg,#171717,#0b0b0b);
 font-weight:700;
-font-size:1.3rem;
+font-size:1.4rem;
 }
 
 .card-content{
-padding:24px;
+padding:30px;
 display:flex;
 justify-content:center;
 align-items:center;
-}
-
-.project-btn{
-display:inline-block;
-padding:14px 28px;
-background:white;
-color:black;
-text-decoration:none;
-border-radius:999px;
-font-weight:700;
-transition:.3s;
-}
-
-.project-btn:hover{
-transform:translateY(-3px);
 }
 
 .contact{
@@ -230,9 +217,9 @@ margin:auto;
 }
 
 }
+
 </style>
 </head>
-
 <body>
 
 <header>
@@ -266,7 +253,7 @@ Crio vídeos virais, motion graphics e conteúdos modernos para redes sociais, c
 </p>
 
 <a href="#projetos" class="btn">
-Ver Projetos
+Ver Projetos →
 </a>
 
 </div>
@@ -292,37 +279,49 @@ Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e ge
 <div class="projects-grid">
 
 <div class="card">
-<div class="thumb">MOTION DESIGN</div>
+<div class="thumb">
+MOTION DESIGN
+</div>
+
 <div class="card-content">
-<a href="https://youtu.be/rSRcvUTie_U" target="_blank" class="project-btn">
-Clique aqui
+<a href="https://youtu.be/rSRcvUTie_U" target="_blank" class="btn">
+Clique aqui →
 </a>
 </div>
 </div>
 
 <div class="card">
-<div class="thumb">VÍDEO VIRAL</div>
+<div class="thumb">
+VÍDEO VIRAL
+</div>
+
 <div class="card-content">
-<a href="#" target="_blank" class="project-btn">
-Clique aqui
+<a href="#" target="_blank" class="btn">
+Clique aqui →
 </a>
 </div>
 </div>
 
 <div class="card">
-<div class="thumb">PUBLICIDADE</div>
+<div class="thumb">
+PUBLICIDADE
+</div>
+
 <div class="card-content">
-<a href="#" target="_blank" class="project-btn">
-Clique aqui
+<a href="#" target="_blank" class="btn">
+Clique aqui →
 </a>
 </div>
 </div>
 
 <div class="card">
-<div class="thumb">ANIMAÇÃO</div>
+<div class="thumb">
+ANIMAÇÃO
+</div>
+
 <div class="card-content">
-<a href="#" target="_blank" class="project-btn">
-Clique aqui
+<a href="#" target="_blank" class="btn">
+Clique aqui →
 </a>
 </div>
 </div>
@@ -339,7 +338,10 @@ Clique aqui
 Entre em contato para projetos, freelas e parcerias.
 </p>
 
-<a href="https://www.instagram.com/kayz_oficial" target="_blank" class="btn">
+<a
+href="https://www.instagram.com/kayz_oficial"
+target="_blank"
+class="btn">
 Instagram →
 </a>
 
@@ -351,4 +353,3 @@ Instagram →
 
 </body>
 </html>
-
