@@ -1,355 +1,181 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Kayz Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
---bg:#050505;
---card:#111111;
---text:#F2F2EE;
---border:#1f1f1f;
-}
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:var(--bg);
-color:var(--text);
-overflow-x:hidden;
-}
-
-header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(5,5,5,.9);
-backdrop-filter:blur(12px);
-border-bottom:1px solid var(--border);
-z-index:999;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:12px;
-}
-
-.logo img{
-width:42px;
-height:42px;
-border-radius:50%;
-object-fit:cover;
-}
-
-.logo span{
-font-weight:700;
-letter-spacing:2px;
-}
-
-nav{
-display:flex;
-gap:30px;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-transition:.3s;
-}
-
-nav a:hover{
-opacity:.6;
-}
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-padding:120px 8%;
-}
-
-.hero-content{
-max-width:1000px;
-}
-
-.hero small{
-letter-spacing:8px;
-font-size:.9rem;
-color:#b8a88c;
-}
-
-.hero h1{
-font-size:clamp(4rem,10vw,8rem);
-line-height:.95;
-font-weight:800;
-letter-spacing:-4px;
-margin:30px 0;
-}
-
-.hero p{
-max-width:700px;
-font-size:1.3rem;
-line-height:1.8;
-color:#bdbdbd;
-}
-
-.btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-margin-top:40px;
-padding:16px 34px;
-background:white;
-color:black;
-text-decoration:none;
-border-radius:999px;
-font-weight:700;
-transition:.3s;
-}
-
-.btn:hover{
-transform:translateY(-3px);
-}
-
-section{
-padding:120px 8%;
-}
-
-h2{
-font-size:clamp(2rem,5vw,4rem);
-margin-bottom:30px;
-}
-
-.about p{
-max-width:800px;
-line-height:2;
-color:#bdbdbd;
-}
-
-.projects-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
-margin-top:40px;
-}
-
-.card{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:24px;
-overflow:hidden;
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-}
-
-.thumb{
-height:220px;
-display:flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(135deg,#171717,#0b0b0b);
-font-weight:700;
-font-size:1.4rem;
-}
-
-.card-content{
-padding:30px;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-.contact{
-text-align:center;
-}
-
-.contact p{
-color:#bdbdbd;
-margin-bottom:20px;
-}
-
-footer{
-padding:40px;
-text-align:center;
-border-top:1px solid var(--border);
-color:#666;
-}
-
-@media(max-width:768px){
-
-nav{
-display:none;
-}
-
-.hero{
-text-align:center;
-}
-
-.hero h1{
-font-size:4rem;
-letter-spacing:-2px;
-}
-
-.hero p{
-font-size:1.1rem;
-margin:auto;
-}
-
-}
-
-</style>
-</head>
-<body>
-
-<header>
-
-<div class="logo">
-<img src="IMG_1671.webp" alt="Kayz">
-<span>KAYZ</span>
-</div>
-
-<nav>
-<a href="#sobre">Sobre</a>
-<a href="#projetos">Projetos</a>
-<a href="#contato">Contato</a>
-</nav>
-
-</header>
-
-<section class="hero">
-
-<div class="hero-content">
-
-<small>EDITOR • MOTION DESIGNER</small>
-
-<h1>
-Editor de Vídeo<br>
-& Motion Designer
-</h1>
-
-<p>
-Crio vídeos virais, motion graphics e conteúdos modernos para redes sociais, criadores e marcas.
-</p>
-
-<a href="#projetos" class="btn">
-Ver Projetos →
-</a>
-
-</div>
-
-</section>
-
-<section id="sobre" class="about">
-
-<h2>Sobre Mim</h2>
-
-<p>
-Meu nome é Kauã, conhecido profissionalmente como Kayz.
-Sou editor de vídeo e motion designer focado em criar conteúdos modernos, dinâmicos e profissionais.
-Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e geram resultados.
-</p>
-
-</section>
-
 <section id="projetos">
 
 <h2>Projetos</h2>
 
 <div class="projects-grid">
 
+<!-- MOTION DESIGN -->
+
 <div class="card">
+
 <div class="thumb">
+
+<video autoplay muted loop playsinline>
+<source src="motion.mp4" type="video/mp4">
+</video>
+
+<div class="motion-title">
 MOTION DESIGN
 </div>
 
-<div class="card-content">
-<a href="https://youtu.be/rSRcvUTie_U" target="_blank" class="btn">
-Clique aqui →
-</a>
-</div>
 </div>
 
+<div class="card-content">
+
+<a
+href="https://youtu.be/rSRcvUTie_U"
+target="_blank"
+class="project-btn">
+
+Clique aqui →
+</a>
+
+</div>
+
+</div>
+
+<!-- VIDEO CURTO -->
+
 <div class="card">
-<div class="thumb">
+
+<div class="thumb static-thumb">
 VÍDEO CURTO
 </div>
 
 <div class="card-content">
-<a href="#" target="_blank" class="btn">
+
+<a href="#" class="project-btn">
 Clique aqui →
 </a>
-</div>
+
 </div>
 
+</div>
+
+<!-- EDIÇÃO DINÂMICA -->
+
 <div class="card">
-<div class="thumb">
+
+<div class="thumb static-thumb">
 EDIÇÃO DINÂMICA
 </div>
 
 <div class="card-content">
-<a href="#" target="_blank" class="btn">
+
+<a href="#" class="project-btn">
 Clique aqui →
 </a>
-</div>
+
 </div>
 
+</div>
+
+<!-- GAMEPLAY -->
+
 <div class="card">
-<div class="thumb">
+
+<div class="thumb static-thumb">
 GAMEPLAY
 </div>
 
 <div class="card-content">
-<a href="#" target="_blank" class="btn">
+
+<a href="#" class="project-btn">
 Clique aqui →
 </a>
+
 </div>
+
 </div>
 
 </div>
 
 </section>
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+margin-top:40px;
+}
 
-<section id="contato" class="contact">
+.card{
+background:#0b0b0b;
+border:1px solid #1d1d1d;
+border-radius:40px;
+overflow:hidden;
+transition:.4s;
+}
 
-<h2>Vamos Trabalhar Juntos</h2>
+.card:hover{
+transform:translateY(-10px);
+border-color:#2f2f2f;
+}
 
-<p>
-Entre em contato para projetos, freelas e parcerias.
-</p>
+.thumb{
+height:340px;
+position:relative;
+overflow:hidden;
+background:#000;
+}
 
-<a
-href="https://www.instagram.com/kayz_oficial"
-target="_blank"
-class="btn">
-Instagram →
-</a>
+.thumb video{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+transition:.6s;
+}
 
-</section>
+.card:hover video{
+transform:scale(1.06);
+}
 
-<footer>
-© 2026 Kayz — Motion Designer & Video Editor
-</footer>
+.motion-title{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:2rem;
+font-weight:800;
+color:white;
+letter-spacing:-1px;
+text-align:center;
+z-index:2;
+text-shadow:0 0 25px rgba(0,0,0,.8);
+}
 
-</body>
-</html>
+.static-thumb{
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,#171717,#0b0b0b);
+font-size:1.5rem;
+font-weight:700;
+}
+
+.card-content{
+padding:35px;
+display:flex;
+justify-content:center;
+background:#0d0d0d;
+}
+
+.project-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+width:100%;
+max-width:300px;
+height:78px;
+background:white;
+color:black;
+text-decoration:none;
+font-size:1.5rem;
+font-weight:700;
+border-radius:999px;
+transition:.3s;
+}
+
+.project-btn:hover{
+transform:scale(1.03);
+}
