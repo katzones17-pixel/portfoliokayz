@@ -144,8 +144,6 @@ line-height:2;
 color:#bdbdbd;
 }
 
-/* PROJETOS */
-
 .projects-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
@@ -228,7 +226,8 @@ max-width:300px;
 height:78px;
 background:white;
 color:black;
-text-decoration:none;
+border:none;
+cursor:pointer;
 font-size:1.5rem;
 font-weight:700;
 border-radius:999px;
@@ -253,6 +252,62 @@ padding:40px;
 text-align:center;
 border-top:1px solid var(--border);
 color:#666;
+}
+
+/* MODAL VIDEO */
+
+.video-modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.88);
+backdrop-filter:blur(12px);
+display:flex;
+align-items:center;
+justify-content:center;
+padding:30px;
+opacity:0;
+visibility:hidden;
+transition:.3s;
+z-index:99999;
+}
+
+.video-modal.active{
+opacity:1;
+visibility:visible;
+}
+
+.video-wrapper{
+width:min(1200px,95vw);
+aspect-ratio:16/9;
+background:#000;
+border-radius:24px;
+overflow:hidden;
+position:relative;
+box-shadow:0 0 80px rgba(0,0,0,.8);
+}
+
+.video-wrapper iframe{
+width:100%;
+height:100%;
+border:none;
+}
+
+.close-video{
+position:absolute;
+top:-55px;
+right:0;
+width:45px;
+height:45px;
+border:none;
+border-radius:50%;
+background:#111;
+color:#fff;
+font-size:24px;
+cursor:pointer;
+}
+
+.close-video:hover{
+background:#222;
 }
 
 @media(max-width:768px){
@@ -341,8 +396,6 @@ Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e ge
 
 <div class="projects-grid">
 
-<!-- MOTION DESIGN -->
-
 <div class="card">
 
 <div class="thumb">
@@ -359,70 +412,33 @@ MOTION DESIGN
 
 <div class="card-content">
 
-<a href="https://youtu.be/rSRcvUTie_U"
-target="_blank"
-class="project-btn">
-
-Clique aqui →
-
-</a>
+<button class="project-btn" onclick="openVideo()">
+Assistir Projeto →
+</button>
 
 </div>
 
 </div>
-
-<!-- VIDEO CURTO -->
 
 <div class="card">
-
-<div class="thumb static-thumb">
-EM PRODUÇÃO
-</div>
-
+<div class="thumb static-thumb">EM PRODUÇÃO</div>
 <div class="card-content">
-
-<a href="#" class="project-btn">
-Clique aqui →
-</a>
-
+<button class="project-btn">Em breve</button>
 </div>
-
 </div>
-
-<!-- EDIÇÃO -->
 
 <div class="card">
-
-<div class="thumb static-thumb">
-EM PRODUÇÃO
-</div>
-
+<div class="thumb static-thumb">EM PRODUÇÃO</div>
 <div class="card-content">
-
-<a href="#" class="project-btn">
-Clique aqui →
-</a>
-
+<button class="project-btn">Em breve</button>
 </div>
-
 </div>
-
-<!-- GAMEPLAY -->
 
 <div class="card">
-
-<div class="thumb static-thumb">
-EM PRODUÇÃO
-</div>
-
+<div class="thumb static-thumb">EM PRODUÇÃO</div>
 <div class="card-content">
-
-<a href="#" class="project-btn">
-Clique aqui →
-</a>
-
+<button class="project-btn">Em breve</button>
 </div>
-
 </div>
 
 </div>
@@ -451,6 +467,61 @@ Instagram →
 <footer>
 © 2026 Kayz — Motion Designer & Video Editor
 </footer>
+
+<div class="video-modal" id="videoModal">
+
+<div class="video-wrapper">
+
+<button class="close-video" onclick="closeVideo()">
+×
+</button>
+
+<iframe
+id="ytPlayer"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen>
+</iframe>
+
+</div>
+
+</div>
+
+<script>
+
+function openVideo(){
+
+document.getElementById('videoModal').classList.add('active');
+
+document.getElementById('ytPlayer').src =
+'https://www.youtube.com/embed/_ilK1pVqurs?autoplay=1';
+
+}
+
+function closeVideo(){
+
+document.getElementById('videoModal').classList.remove('active');
+
+document.getElementById('ytPlayer').src = '';
+
+}
+
+document.getElementById('videoModal').addEventListener('click', function(e){
+
+if(e.target === this){
+closeVideo();
+}
+
+});
+
+document.addEventListener('keydown', function(e){
+
+if(e.key === 'Escape'){
+closeVideo();
+}
+
+});
+
+</script>
 
 </body>
 </html>
