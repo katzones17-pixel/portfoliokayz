@@ -415,73 +415,95 @@ Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e ge
 
 <div class="projects-grid">
 
-<div class="card">
+    <!-- CARD 1 - MOTION -->
 
-<div class="thumb">
+    <div class="card">
 
-<video autoplay muted loop playsinline>
-    <source src="motion.mp4" type="video/mp4">
-</video>
+        <div class="thumb">
 
-<div class="motion-title">
-    MOTION DESIGN
+            <video autoplay muted loop playsinline>
+                <source src="motion.mp4" type="video/mp4">
+            </video>
+
+            <div class="motion-title">
+                MOTION DESIGN
+            </div>
+
+        </div>
+
+        <div class="card-content">
+
+            <button class="project-btn" onclick="openVideo()">
+                Assistir Projeto →
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- CARD 2 - SHORTS -->
+
+    <div class="card">
+
+        <div class="thumb">
+
+            <video autoplay muted loop playsinline>
+                <source src="shorts-preview.mp4" type="video/mp4">
+            </video>
+
+            <div class="motion-title">
+                SHORTS
+            </div>
+
+        </div>
+
+        <div class="card-content">
+
+            <button class="project-btn" onclick="openShort()">
+                Assistir Shorts →
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- CARD 3 -->
+
+    <div class="card">
+
+        <div class="thumb static-thumb">
+            EM PRODUÇÃO
+        </div>
+
+        <div class="card-content">
+
+            <button class="project-btn">
+                Em breve
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- CARD 4 -->
+
+    <div class="card">
+
+        <div class="thumb static-thumb">
+            EM PRODUÇÃO
+        </div>
+
+        <div class="card-content">
+
+            <button class="project-btn">
+                Em breve
+            </button>
+
+        </div>
+
+    </div>
+
 </div>
-
-</div>
-<div class="video-modal" id="shortModal">
-
-<div class="short-wrapper">
-
-<button class="close-video" onclick="closeShort()">
-×
-</button>
-
-<iframe
-id="shortPlayer"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-allowfullscreen>
-</iframe>
-
-</div>
-
-</div>
-
-<div class="card-content">
-
-<button class="project-btn" onclick="openVideo()">
-Assistir Projeto →
-</button>
-
-</div>
-
-</div>
-
-
-<div class="card">
-
-<div class="thumb static-thumb">
-📱 SHORTS
-</div>
-
-<div class="card-content">
-
-<button class="project-btn" onclick="openShort()">
-Assistir Shorts →
-</button>
-
-</div>
-
-</div>
-
-<div class="card">
-<div class="thumb static-thumb">EM PRODUÇÃO</div>
-<div class="card-content">
-<button class="project-btn">Em breve</button>
-</div>
-</div>
-
-</div>
-
 </section>
 
 <section id="contato" class="contact">
@@ -522,6 +544,42 @@ allowfullscreen>
 </iframe>
 
 </div>
+
+</div>
+
+<!-- MODAL MOTION -->
+
+<div class="video-modal" id="videoModal">
+
+    <div class="video-wrapper">
+
+        <button class="close-video" onclick="closeVideo()">×</button>
+
+        <iframe
+            id="ytPlayer"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+</div>
+
+<!-- MODAL SHORTS -->
+
+<div class="video-modal" id="shortModal">
+
+    <div class="short-wrapper">
+
+        <button class="close-video" onclick="closeShort()">×</button>
+
+        <iframe
+            id="shortPlayer"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+
+    </div>
 
 </div>
 
@@ -584,7 +642,6 @@ closeShort();
 }
 
 });
-
 </script>
 
 </body>
