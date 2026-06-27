@@ -221,6 +221,7 @@ text-align:center;
 border-top:1px solid var(--border);
 color:#666;
 }
+
 /* MODAL VIDEO */
 .video-modal{
 position:fixed;
@@ -317,6 +318,7 @@ font-size:1.5rem;
 <a href="#contato">Contato</a>
 </nav>
 </header>
+
 <section class="hero">
 <div class="hero-content">
 <small>EDITOR • MOTION DESIGNER</small>
@@ -332,6 +334,7 @@ Ver Projetos →
 </a>
 </div>
 </section>
+
 <section id="sobre" class="about">
 <h2>Sobre Mim</h2>
 <p>
@@ -340,6 +343,7 @@ Sou editor de vídeo e motion designer focado em criar conteúdos modernos, din�
 Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e geram resultados.
 </p>
 </section>
+
 <section id="projetos">
 <h2>Projetos</h2>
 <div class="projects-grid">
@@ -359,6 +363,7 @@ Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e ge
             </button>
         </div>
     </div>
+
     <!-- CARD 2 - SHORTS -->
     <div class="card">
         <div class="thumb">
@@ -375,7 +380,8 @@ Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e ge
             </button>
         </div>
     </div>
-    <!-- CARD 3 - MOTION DINÂMICO (topo agora preto igual os 2 primeiros) -->
+
+    <!-- CARD 3 - MOTION DINÂMICO -->
     <div class="card">
         <div class="thumb">
             <div class="motion-title">
@@ -388,67 +394,72 @@ Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e ge
             </button>
         </div>
     </div>
-    <!-- CARD 4 -->
+
+    <!-- CARD 4 - EDIÇÃO YOUTUBE -->
     <div class="card">
-        <div class="thumb static-thumb">
-            EM PRODUÇÃO
+        <div class="thumb">
+            <video autoplay muted loop playsinline>
+                <source src="youtube-preview.mp4" type="video/mp4"> <!-- Troque pelo seu vídeo de preview -->
+            </video>
+            <div class="motion-title">
+                EDIÇÃO YOUTUBE
+            </div>
         </div>
         <div class="card-content">
-            <button class="project-btn">
-                Em breve
+            <button class="project-btn" onclick="openYoutubeEdition()">
+                Assistir Projeto →
             </button>
         </div>
     </div>
 </div>
 </section>
+
 <section id="contato" class="contact">
 <h2>Vamos Trabalhar Juntos</h2>
 <p>
 Entre em contato para projetos, freelas e parcerias.
 </p>
-<a
-href="https://www.instagram.com/kayz_oficial"
-target="_blank"
-class="btn">
+<a href="https://www.instagram.com/kayz_oficial" target="_blank" class="btn">
 Instagram →
 </a>
 </section>
+
 <footer>
 © 2026 Kayz — Motion Designer & Video Editor
 </footer>
+
 <!-- MODAL MOTION -->
 <div class="video-modal" id="videoModal">
     <div class="video-wrapper">
         <button class="close-video" onclick="closeVideo()">×</button>
-        <iframe
-            id="ytPlayer"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-        </iframe>
+        <iframe id="ytPlayer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 </div>
+
 <!-- MODAL SHORTS -->
 <div class="video-modal" id="shortModal">
     <div class="short-wrapper">
         <button class="close-video" onclick="closeShort()">×</button>
-        <iframe
-            id="shortPlayer"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-        </iframe>
+        <iframe id="shortPlayer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 </div>
+
 <!-- MODAL MOTION DINÂMICO -->
 <div class="video-modal" id="motionDinamicoModal">
     <div class="short-wrapper">
         <button class="close-video" onclick="closeMotionDinamico()">×</button>
-        <iframe
-            id="motionDinamicoPlayer"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-        </iframe>
+        <iframe id="motionDinamicoPlayer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 </div>
+
+<!-- NOVO MODAL - EDIÇÃO YOUTUBE -->
+<div class="video-modal" id="youtubeEditionModal">
+    <div class="video-wrapper">
+        <button class="close-video" onclick="closeYoutubeEdition()">×</button>
+        <iframe id="youtubeEditionPlayer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</div>
+
 <script>
 // MODAL MOTION DESIGN
 function openVideo(){
@@ -459,11 +470,7 @@ function closeVideo(){
     document.getElementById('videoModal').classList.remove('active');
     document.getElementById('ytPlayer').src = '';
 }
-document.getElementById('videoModal').addEventListener('click', function(e){
-    if(e.target === this){
-        closeVideo();
-    }
-});
+
 // MODAL SHORTS
 function openShort(){
     document.getElementById('shortModal').classList.add('active');
@@ -473,11 +480,7 @@ function closeShort(){
     document.getElementById('shortModal').classList.remove('active');
     document.getElementById('shortPlayer').src = '';
 }
-document.getElementById('shortModal').addEventListener('click', function(e){
-    if(e.target === this){
-        closeShort();
-    }
-});
+
 // MODAL MOTION DINÂMICO
 function openMotionDinamico(){
     document.getElementById('motionDinamicoModal').classList.add('active');
@@ -487,17 +490,30 @@ function closeMotionDinamico(){
     document.getElementById('motionDinamicoModal').classList.remove('active');
     document.getElementById('motionDinamicoPlayer').src = '';
 }
-document.getElementById('motionDinamicoModal').addEventListener('click', function(e){
-    if(e.target === this){
-        closeMotionDinamico();
-    }
-});
-// ESC para fechar todos os modais
+
+// NOVO MODAL - EDIÇÃO YOUTUBE
+function openYoutubeEdition(){
+    document.getElementById('youtubeEditionModal').classList.add('active');
+    document.getElementById('youtubeEditionPlayer').src = 'https://www.youtube.com/embed/Aa0JISXubxY?autoplay=1';
+}
+function closeYoutubeEdition(){
+    document.getElementById('youtubeEditionModal').classList.remove('active');
+    document.getElementById('youtubeEditionPlayer').src = '';
+}
+
+// Fechar ao clicar fora
+document.getElementById('videoModal').addEventListener('click', function(e){ if(e.target === this) closeVideo(); });
+document.getElementById('shortModal').addEventListener('click', function(e){ if(e.target === this) closeShort(); });
+document.getElementById('motionDinamicoModal').addEventListener('click', function(e){ if(e.target === this) closeMotionDinamico(); });
+document.getElementById('youtubeEditionModal').addEventListener('click', function(e){ if(e.target === this) closeYoutubeEdition(); });
+
+// ESC para fechar
 document.addEventListener('keydown', function(e){
     if(e.key === 'Escape'){
         closeVideo();
         closeShort();
         closeMotionDinamico();
+        closeYoutubeEdition();
     }
 });
 </script>
