@@ -171,18 +171,6 @@ text-align:center;
 z-index:2;
 text-shadow:0 0 30px rgba(0,0,0,.8);
 }
-.static-thumb{
-display:flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(
-135deg,
-#171717,
-#0b0b0b
-);
-font-size:1.5rem;
-font-weight:700;
-}
 .card-content{
 padding:35px;
 display:flex;
@@ -222,7 +210,7 @@ border-top:1px solid var(--border);
 color:#666;
 }
 
-/* MODAL VIDEO */
+/* MODALS */
 .video-modal{
 position:fixed;
 inset:0;
@@ -269,25 +257,6 @@ width:100%;
 height:100%;
 border:none;
 }
-@media(max-width:768px){
-nav{
-display:none;
-}
-.hero{
-text-align:center;
-}
-.hero h1{
-font-size:4rem;
-letter-spacing:-2px;
-}
-.hero p{
-font-size:1.1rem;
-margin:auto;
-}
-.motion-title{
-font-size:1.5rem;
-}
-}
 </style>
 </head>
 <body>
@@ -306,32 +275,22 @@ font-size:1.5rem;
 <section class="hero">
 <div class="hero-content">
 <small>EDITOR • MOTION DESIGNER</small>
-<h1>
-Editor de Vídeo<br>
-& Motion Designer
-</h1>
-<p>
-Crio vídeos virais, motion graphics e conteúdos modernos para redes sociais, criadores e marcas.
-</p>
-<a href="#projetos" class="btn">
-Ver Projetos →
-</a>
+<h1>Editor de Vídeo<br>& Motion Designer</h1>
+<p>Crio vídeos virais, motion graphics e conteúdos modernos para redes sociais, criadores e marcas.</p>
+<a href="#projetos" class="btn">Ver Projetos →</a>
 </div>
 </section>
 
 <section id="sobre" class="about">
 <h2>Sobre Mim</h2>
-<p>
-Meu nome é Kauã, conhecido profissionalmente como Kayz.
-Sou editor de vídeo e motion designer focado em criar conteúdos modernos, dinâmicos e profissionais.
-Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e geram resultados.
-</p>
+<p>Meu nome é Kauã, conhecido profissionalmente como Kayz. Sou editor de vídeo e motion designer focado em criar conteúdos modernos, dinâmicos e profissionais.</p>
 </section>
 
 <section id="projetos">
 <h2>Projetos</h2>
 <div class="projects-grid">
-    <!-- CARD 1 - MOTION -->
+
+    <!-- CARD 1 -->
     <div class="card">
         <div class="thumb">
             <video autoplay muted loop playsinline>
@@ -344,7 +303,7 @@ Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e ge
         </div>
     </div>
 
-    <!-- CARD 2 - SHORTS (existente) -->
+    <!-- CARD 2 -->
     <div class="card">
         <div class="thumb">
             <video autoplay muted loop playsinline>
@@ -357,7 +316,7 @@ Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e ge
         </div>
     </div>
 
-    <!-- CARD 3 - MOTION DINÂMICO -->
+    <!-- CARD 3 -->
     <div class="card">
         <div class="thumb">
             <div class="motion-title">MOTION DINÂMICO</div>
@@ -367,7 +326,7 @@ Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e ge
         </div>
     </div>
 
-    <!-- CARD 4 - EDIÇÃO YOUTUBE -->
+    <!-- CARD 4 -->
     <div class="card">
         <div class="thumb">
             <video autoplay muted loop playsinline>
@@ -380,11 +339,11 @@ Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e ge
         </div>
     </div>
 
-    <!-- === NOVO CARD 5 - SHORTS === -->
+    <!-- NOVO CARD 5 - SHORTS -->
     <div class="card">
         <div class="thumb">
             <video autoplay muted loop playsinline>
-                <source src="shorts2-preview.mp4" type="video/mp4"> <!-- Troque pelo preview -->
+                <source src="shorts2-preview.mp4" type="video/mp4">
             </video>
             <div class="motion-title">SHORTS</div>
         </div>
@@ -393,11 +352,11 @@ Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e ge
         </div>
     </div>
 
-    <!-- === NOVO CARD 6 - GAMEPLAY === -->
+    <!-- NOVO CARD 6 - GAMEPLAY -->
     <div class="card">
         <div class="thumb">
             <video autoplay muted loop playsinline>
-                <source src="gameplay-preview.mp4" type="video/mp4"> <!-- Troque pelo preview -->
+                <source src="gameplay-preview.mp4" type="video/mp4">
             </video>
             <div class="motion-title">GAMEPLAY</div>
         </div>
@@ -415,19 +374,43 @@ Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e ge
 <a href="https://www.instagram.com/kayz_oficial" target="_blank" class="btn">Instagram →</a>
 </section>
 
-<footer>
-© 2026 Kayz — Motion Designer & Video Editor
-</footer>
+<footer>© 2026 Kayz — Motion Designer & Video Editor</footer>
 
-<!-- Modais existentes (mantidos) -->
-<div class="video-modal" id="videoModal"> ... </div>
-<div class="video-modal" id="shortModal"> ... </div>
-<div class="video-modal" id="motionDinamicoModal"> ... </div>
-<div class="video-modal" id="youtubeEditionModal"> ... </div>
+<!-- ==================== MODAIS ==================== -->
 
-<!-- === NOVOS MODAIS === -->
+<!-- Modal Motion -->
+<div class="video-modal" id="videoModal">
+    <div class="video-wrapper">
+        <button class="close-video" onclick="closeVideo()">×</button>
+        <iframe id="ytPlayer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</div>
 
-<!-- MODAL SHORTS 2 -->
+<!-- Modal Shorts 1 -->
+<div class="video-modal" id="shortModal">
+    <div class="short-wrapper">
+        <button class="close-video" onclick="closeShort()">×</button>
+        <iframe id="shortPlayer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!-- Modal Motion Dinâmico -->
+<div class="video-modal" id="motionDinamicoModal">
+    <div class="short-wrapper">
+        <button class="close-video" onclick="closeMotionDinamico()">×</button>
+        <iframe id="motionDinamicoPlayer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!-- Modal Edição YouTube -->
+<div class="video-modal" id="youtubeEditionModal">
+    <div class="video-wrapper">
+        <button class="close-video" onclick="closeYoutubeEdition()">×</button>
+        <iframe id="youtubeEditionPlayer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!-- Modal Shorts 2 (novo) -->
 <div class="video-modal" id="short2Modal">
     <div class="short-wrapper">
         <button class="close-video" onclick="closeShort2()">×</button>
@@ -435,7 +418,7 @@ Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e ge
     </div>
 </div>
 
-<!-- MODAL GAMEPLAY -->
+<!-- Modal Gameplay (novo) -->
 <div class="video-modal" id="gameplayModal">
     <div class="video-wrapper">
         <button class="close-video" onclick="closeGameplay()">×</button>
@@ -444,12 +427,49 @@ Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e ge
 </div>
 
 <script>
-// === Funções existentes (mantidas) ===
-// ... (openVideo, closeVideo, openShort, etc.)
+// ==================== FUNÇÕES DOS MODAIS ====================
 
-// === NOVAS FUNÇÕES ===
+// Motion
+function openVideo(){
+    document.getElementById('videoModal').classList.add('active');
+    document.getElementById('ytPlayer').src = 'https://www.youtube.com/embed/_ilK1pVqurs?autoplay=1';
+}
+function closeVideo(){
+    document.getElementById('videoModal').classList.remove('active');
+    document.getElementById('ytPlayer').src = '';
+}
 
-// SHORTS 2
+// Shorts 1
+function openShort(){
+    document.getElementById('shortModal').classList.add('active');
+    document.getElementById('shortPlayer').src = 'https://www.youtube.com/embed/5TxD5f9-h1A?autoplay=1';
+}
+function closeShort(){
+    document.getElementById('shortModal').classList.remove('active');
+    document.getElementById('shortPlayer').src = '';
+}
+
+// Motion Dinâmico
+function openMotionDinamico(){
+    document.getElementById('motionDinamicoModal').classList.add('active');
+    document.getElementById('motionDinamicoPlayer').src = 'https://www.youtube.com/embed/VCnw2oIrcZ8?autoplay=1';
+}
+function closeMotionDinamico(){
+    document.getElementById('motionDinamicoModal').classList.remove('active');
+    document.getElementById('motionDinamicoPlayer').src = '';
+}
+
+// Edição YouTube
+function openYoutubeEdition(){
+    document.getElementById('youtubeEditionModal').classList.add('active');
+    document.getElementById('youtubeEditionPlayer').src = 'https://www.youtube.com/embed/Aa0JISXubxY?autoplay=1';
+}
+function closeYoutubeEdition(){
+    document.getElementById('youtubeEditionModal').classList.remove('active');
+    document.getElementById('youtubeEditionPlayer').src = '';
+}
+
+// Shorts 2 (novo)
 function openShort2(){
     document.getElementById('short2Modal').classList.add('active');
     document.getElementById('short2Player').src = 'https://www.youtube.com/embed/Pjg756CG8ZQ?autoplay=1';
@@ -459,7 +479,7 @@ function closeShort2(){
     document.getElementById('short2Player').src = '';
 }
 
-// GAMEPLAY
+// Gameplay (novo)
 function openGameplay(){
     document.getElementById('gameplayModal').classList.add('active');
     document.getElementById('gameplayPlayer').src = 'https://www.youtube.com/embed/BAyY7gAjaFc?autoplay=1';
@@ -469,16 +489,30 @@ function closeGameplay(){
     document.getElementById('gameplayPlayer').src = '';
 }
 
-// Fechar ao clicar fora
-document.getElementById('short2Modal').addEventListener('click', function(e){ if(e.target === this) closeShort2(); });
-document.getElementById('gameplayModal').addEventListener('click', function(e){ if(e.target === this) closeGameplay(); });
+// Fechar clicando fora
+document.querySelectorAll('.video-modal').forEach(modal => {
+    modal.addEventListener('click', function(e){
+        if(e.target === this) {
+            const id = this.id;
+            if(id === 'videoModal') closeVideo();
+            else if(id === 'shortModal') closeShort();
+            else if(id === 'motionDinamicoModal') closeMotionDinamico();
+            else if(id === 'youtubeEditionModal') closeYoutubeEdition();
+            else if(id === 'short2Modal') closeShort2();
+            else if(id === 'gameplayModal') closeGameplay();
+        }
+    });
+});
 
-// ESC para fechar
+// Fechar com ESC
 document.addEventListener('keydown', function(e){
     if(e.key === 'Escape'){
+        closeVideo();
+        closeShort();
+        closeMotionDinamico();
+        closeYoutubeEdition();
         closeShort2();
         closeGameplay();
-        // ... outras funções close
     }
 });
 </script>
