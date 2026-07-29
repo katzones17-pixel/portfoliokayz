@@ -147,6 +147,12 @@ h2 {
   letter-spacing: -1px;
 }
 
+.section-subtitle {
+  color: var(--muted);
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+}
+
 .about p {
   max-width: 720px;
   font-size: 1.15rem;
@@ -233,6 +239,19 @@ h2 {
 .project-btn:hover {
   transform: scale(1.03);
   background: #f0f0f0;
+}
+
+/* Botão especial para trabalhos em andamento */
+.project-btn.soon {
+  background: transparent;
+  color: white;
+  border: 2px solid #444;
+  cursor: default;
+}
+
+.project-btn.soon:hover {
+  transform: none;
+  background: transparent;
 }
 
 .contact {
@@ -346,6 +365,7 @@ footer {
   <nav>
     <a href="#sobre">Sobre</a>
     <a href="#projetos">Projetos</a>
+    <a href="#andamento">Em Andamento</a>
     <a href="#contato">Contato</a>
   </nav>
 </header>
@@ -450,7 +470,7 @@ footer {
       </div>
     </div>
 
-    <!-- Shorts 3 (novo) -->
+    <!-- Shorts 3 -->
     <div class="card">
       <div class="thumb">
         <img src="https://img.youtube.com/vi/w8H5vQQnTPM/maxresdefault.jpg" alt="Shorts">
@@ -460,6 +480,42 @@ footer {
       </div>
       <div class="card-content">
         <button class="project-btn" onclick="openVideo('w8H5vQQnTPM', true)">Assistir Shorts →</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==================== NOVA SEÇÃO ==================== -->
+<section id="andamento">
+  <h2>Trabalhos em Andamento</h2>
+  <p class="section-subtitle">Projetos que estão sendo desenvolvidos no momento</p>
+
+  <div class="projects-grid">
+
+    <!-- NÃO CORRA -->
+    <div class="card">
+      <div class="thumb">
+        <img src="nao-corra.png" alt="Não Corra">
+        <div class="thumb-overlay">
+          <div class="thumb-title">NÃO CORRA</div>
+        </div>
+      </div>
+      <div class="card-content">
+        <button class="project-btn soon">Em breve</button>
+      </div>
+    </div>
+
+    <!-- Minecraft Horror -->
+    <div class="card">
+      <div class="thumb">
+        <img src="minecraft-horror.png" alt="Minecraft Horror">
+        <div class="thumb-overlay">
+          <div class="thumb-title">MINECRAFT HORROR</div>
+        </div>
+      </div>
+      <div class="card-content">
+        <button class="project-btn soon">Em breve</button>
       </div>
     </div>
 
@@ -490,10 +546,7 @@ function openVideo(id, isShort = false) {
   const content = document.getElementById('modalContent');
   const player = document.getElementById('player');
 
-  // Define o formato (Short ou vídeo normal)
   content.className = isShort ? 'short-wrapper' : 'video-wrapper';
-  
-  // Usando youtube-nocookie (ajuda a evitar o bloqueio)
   player.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
   modal.classList.add('active');
 }
@@ -505,12 +558,10 @@ function closeVideo() {
   player.src = '';
 }
 
-// Fechar clicando fora
 document.getElementById('videoModal').addEventListener('click', function(e) {
   if (e.target === this) closeVideo();
 });
 
-// Fechar com ESC
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeVideo();
 });
