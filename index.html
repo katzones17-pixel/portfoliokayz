@@ -4,516 +4,521 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kayz Portfolio</title>
- 
+
 <link rel="icon" type="image/png" href="favicon_kayz.png">
-<link rel="shortcut icon" href="favicon_kayz.png">
-<link rel="apple-touch-icon" href="favicon_kayz.png">
- 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-:root{
---bg:#050505;
---card:#111111;
---text:#F2F2EE;
---border:#1f1f1f;
-}
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
-scroll-behavior:smooth;
-}
-body{
-background:var(--bg);
-color:var(--text);
-overflow-x:hidden;
-}
-header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:20px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(5,5,5,.9);
-backdrop-filter:blur(12px);
-border-bottom:1px solid var(--border);
-z-index:999;
-}
-.logo{
-display:flex;
-align-items:center;
-gap:12px;
-}
-.logo img{
-width:42px;
-height:42px;
-border-radius:50%;
-object-fit:cover;
-}
-.logo span{
-font-weight:700;
-letter-spacing:2px;
-}
-nav{
-display:flex;
-gap:30px;
-}
-nav a{
-color:white;
-text-decoration:none;
-transition:.3s;
-}
-nav a:hover{
-opacity:.6;
-}
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-padding:120px 8%;
-}
-.hero-content{
-max-width:1000px;
-}
-.hero small{
-letter-spacing:8px;
-font-size:.9rem;
-color:#b8a88c;
-}
-.hero h1{
-font-size:clamp(4rem,10vw,8rem);
-line-height:.95;
-font-weight:800;
-letter-spacing:-4px;
-margin:30px 0;
-}
-.hero p{
-max-width:700px;
-font-size:1.3rem;
-line-height:1.8;
-color:#bdbdbd;
-}
-.btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-margin-top:40px;
-padding:16px 34px;
-background:white;
-color:black;
-text-decoration:none;
-border-radius:999px;
-font-weight:700;
-transition:.3s;
-}
-.btn:hover{
-transform:translateY(-3px);
-}
-section{
-padding:120px 8%;
-}
-h2{
-font-size:clamp(2rem,5vw,4rem);
-margin-bottom:30px;
-}
-.about p{
-max-width:800px;
-line-height:2;
-color:#bdbdbd;
-}
-.projects-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
-margin-top:40px;
-}
-.card{
-background:#0b0b0b;
-border:1px solid #1d1d1d;
-border-radius:40px;
-overflow:hidden;
-transition:.4s;
-}
-.card:hover{
-transform:translateY(-10px);
-border-color:#2f2f2f;
-}
-.thumb{
-height:340px;
-position:relative;
-overflow:hidden;
-background:#000;
-}
-.thumb video{
-width:100%;
-height:100%;
-object-fit:cover;
-display:block;
-transition:.6s;
-}
-.card:hover video{
-transform:scale(1.06);
-}
-.motion-title{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-font-size:2rem;
-font-weight:800;
-color:white;
-letter-spacing:-1px;
-text-align:center;
-z-index:2;
-text-shadow:0 0 30px rgba(0,0,0,.8);
-}
-.card-content{
-padding:35px;
-display:flex;
-justify-content:center;
-background:#0d0d0d;
-}
-.project-btn{
-display:flex;
-align-items:center;
-justify-content:center;
-width:100%;
-max-width:300px;
-height:78px;
-background:white;
-color:black;
-border:none;
-cursor:pointer;
-font-size:1.5rem;
-font-weight:700;
-border-radius:999px;
-transition:.3s;
-}
-.project-btn:hover{
-transform:scale(1.03);
-}
-.contact{
-text-align:center;
-}
-.contact p{
-color:#bdbdbd;
-margin-bottom:20px;
-}
-footer{
-padding:40px;
-text-align:center;
-border-top:1px solid var(--border);
-color:#666;
+:root {
+  --bg: #050505;
+  --card: #0d0d0d;
+  --text: #F2F2EE;
+  --muted: #a0a0a0;
+  --border: #1f1f1f;
+  --accent: #ffffff;
 }
 
-/* MODALS */
-.video-modal{
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.88);
-backdrop-filter:blur(12px);
-display:flex;
-align-items:center;
-justify-content:center;
-padding:30px;
-opacity:0;
-visibility:hidden;
-transition:.3s;
-z-index:99999;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
 }
-.video-modal.active{
-opacity:1;
-visibility:visible;
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.5;
 }
-.video-wrapper{
-width:min(1200px,95vw);
-aspect-ratio:16/9;
-background:#000;
-border-radius:24px;
-overflow:hidden;
-position:relative;
-box-shadow:0 0 80px rgba(0,0,0,.8);
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(5, 5, 5, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
 }
-.video-wrapper iframe{
-width:100%;
-height:100%;
-border:none;
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-.short-wrapper{
-width:min(420px,95vw);
-aspect-ratio:9/16;
-background:#000;
-border-radius:24px;
-overflow:hidden;
-position:relative;
-box-shadow:0 0 80px rgba(0,0,0,.8);
+
+.logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 }
-.short-wrapper iframe{
-width:100%;
-height:100%;
-border:none;
+
+.logo span {
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 1.05rem;
+}
+
+nav {
+  display: flex;
+  gap: 32px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: opacity 0.25s;
+}
+
+nav a:hover {
+  opacity: 0.6;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 140px 7% 80px;
+}
+
+.hero-content {
+  max-width: 900px;
+}
+
+.hero small {
+  letter-spacing: 6px;
+  font-size: 0.85rem;
+  color: #c4b59a;
+  font-weight: 500;
+}
+
+.hero h1 {
+  font-size: clamp(3.2rem, 8vw, 6.5rem);
+  line-height: 0.95;
+  font-weight: 800;
+  letter-spacing: -3px;
+  margin: 24px 0 28px;
+}
+
+.hero p {
+  max-width: 620px;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 36px;
+  padding: 15px 32px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255,255,255,0.15);
+}
+
+/* Sections */
+section {
+  padding: 100px 7%;
+}
+
+h2 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
+}
+
+.about p {
+  max-width: 720px;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  overflow: hidden;
+  transition: transform 0.35s, border-color 0.35s, box-shadow 0.35s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #333;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.thumb {
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+  background: #111;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.card:hover .thumb img {
+  transform: scale(1.07);
+}
+
+.thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+
+.thumb-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+}
+
+.card-content {
+  padding: 22px 24px 26px;
+  display: flex;
+  justify-content: center;
+}
+
+.project-btn {
+  width: 100%;
+  max-width: 280px;
+  height: 56px;
+  background: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 999px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.project-btn:hover {
+  transform: scale(1.03);
+  background: #f0f0f0;
+}
+
+/* Contact */
+.contact {
+  text-align: center;
+}
+
+.contact p {
+  color: var(--muted);
+  margin-bottom: 28px;
+  font-size: 1.1rem;
+}
+
+footer {
+  padding: 40px 7%;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* Modals */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 99999;
+}
+
+.video-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-wrapper {
+  width: min(1100px, 94vw);
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 80px rgba(0,0,0,0.7);
+}
+
+.short-wrapper {
+  width: min(400px, 90vw);
+  aspect-ratio: 9/16;
+  background: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 80px rgba(0,0,0,0.7);
+}
+
+.video-wrapper iframe,
+.short-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.close-video {
+  position: absolute;
+  top: -52px;
+  right: 0;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: #1a1a1a;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.close-video:hover {
+  background: #2a2a2a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav { display: none; }
+  .hero { text-align: center; padding-top: 120px; }
+  .hero h1 { letter-spacing: -2px; }
+  .hero p { margin: 0 auto; }
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .thumb { height: 240px; }
 }
 </style>
 </head>
 <body>
+
 <header>
-<div class="logo">
-<img src="IMG_1671.webp" alt="Kayz">
-<span>KAYZ</span>
-</div>
-<nav>
-<a href="#sobre">Sobre</a>
-<a href="#projetos">Projetos</a>
-<a href="#contato">Contato</a>
-</nav>
+  <div class="logo">
+    <img src="IMG_1671.webp" alt="Kayz">
+    <span>KAYZ</span>
+  </div>
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#contato">Contato</a>
+  </nav>
 </header>
 
 <section class="hero">
-<div class="hero-content">
-<small>EDITOR • MOTION DESIGNER</small>
-<h1>Editor de Vídeo<br>& Motion Designer</h1>
-<p>Crio vídeos virais, motion graphics e conteúdos modernos para redes sociais, criadores e marcas.</p>
-<a href="#projetos" class="btn">Ver Projetos →</a>
-</div>
+  <div class="hero-content">
+    <small>EDITOR • MOTION DESIGNER</small>
+    <h1>Editor de Vídeo<br>& Motion Designer</h1>
+    <p>Crio vídeos virais, motion graphics e conteúdos modernos para redes sociais, criadores e marcas.</p>
+    <a href="#projetos" class="btn">Ver Projetos →</a>
+  </div>
 </section>
 
 <section id="sobre" class="about">
-<h2>Sobre Mim</h2>
-<p>Meu nome é Kauã, conhecido profissionalmente como Kayz. Sou editor de vídeo e motion designer focado em criar conteúdos modernos, dinâmicos e profissionais.</p>
+  <h2>Sobre Mim</h2>
+  <p>
+    Meu nome é Kauã, conhecido profissionalmente como Kayz.
+    Sou editor de vídeo e motion designer focado em criar conteúdos modernos, dinâmicos e profissionais.
+    Transformo ideias em vídeos que prendem a atenção, aumentam a retenção e geram resultados.
+  </p>
 </section>
 
 <section id="projetos">
-<h2>Projetos</h2>
-<div class="projects-grid">
+  <h2>Projetos</h2>
+  <div class="projects-grid">
 
-    <!-- CARD 1 -->
+    <!-- Motion Design -->
     <div class="card">
-        <div class="thumb">
-            <video autoplay muted loop playsinline>
-                <source src="motion.mp4" type="video/mp4">
-            </video>
-            <div class="motion-title">MOTION DESIGN</div>
+      <div class="thumb">
+        <img src="https://img.youtube.com/vi/_ilK1pVqurs/maxresdefault.jpg" alt="Motion Design">
+        <div class="thumb-overlay">
+          <div class="thumb-title">MOTION DESIGN</div>
         </div>
-        <div class="card-content">
-            <button class="project-btn" onclick="openVideo()">Assistir Projeto →</button>
-        </div>
+      </div>
+      <div class="card-content">
+        <button class="project-btn" onclick="openVideo('_ilK1pVqurs', false)">Assistir Projeto →</button>
+      </div>
     </div>
 
-    <!-- CARD 2 -->
+    <!-- Shorts 1 -->
     <div class="card">
-        <div class="thumb">
-            <video autoplay muted loop playsinline>
-                <source src="shorts-preview.mp4" type="video/mp4">
-            </video>
-            <div class="motion-title">SHORTS</div>
+      <div class="thumb">
+        <img src="https://img.youtube.com/vi/5TxD5f9-h1A/maxresdefault.jpg" alt="Shorts">
+        <div class="thumb-overlay">
+          <div class="thumb-title">SHORTS</div>
         </div>
-        <div class="card-content">
-            <button class="project-btn" onclick="openShort()">Assistir Shorts →</button>
-        </div>
+      </div>
+      <div class="card-content">
+        <button class="project-btn" onclick="openVideo('5TxD5f9-h1A', true)">Assistir Shorts →</button>
+      </div>
     </div>
 
-    <!-- CARD 3 -->
+    <!-- Motion Dinâmico -->
     <div class="card">
-        <div class="thumb">
-            <div class="motion-title">MOTION DINÂMICO</div>
+      <div class="thumb">
+        <img src="https://img.youtube.com/vi/VCnw2oIrcZ8/maxresdefault.jpg" alt="Motion Dinâmico">
+        <div class="thumb-overlay">
+          <div class="thumb-title">MOTION DINÂMICO</div>
         </div>
-        <div class="card-content">
-            <button class="project-btn" onclick="openMotionDinamico()">Assistir Projeto →</button>
-        </div>
+      </div>
+      <div class="card-content">
+        <button class="project-btn" onclick="openVideo('VCnw2oIrcZ8', true)">Assistir Projeto →</button>
+      </div>
     </div>
 
-    <!-- CARD 4 -->
+    <!-- Edição YouTube -->
     <div class="card">
-        <div class="thumb">
-            <video autoplay muted loop playsinline>
-                <source src="youtube-preview.mp4" type="video/mp4">
-            </video>
-            <div class="motion-title">EDIÇÃO YOUTUBE</div>
+      <div class="thumb">
+        <img src="https://img.youtube.com/vi/Aa0JISXubxY/maxresdefault.jpg" alt="Edição YouTube">
+        <div class="thumb-overlay">
+          <div class="thumb-title">EDIÇÃO YOUTUBE</div>
         </div>
-        <div class="card-content">
-            <button class="project-btn" onclick="openYoutubeEdition()">Assistir Projeto →</button>
-        </div>
+      </div>
+      <div class="card-content">
+        <button class="project-btn" onclick="openVideo('Aa0JISXubxY', false)">Assistir Projeto →</button>
+      </div>
     </div>
 
-    <!-- NOVO CARD 5 - SHORTS -->
+    <!-- Shorts 2 -->
     <div class="card">
-        <div class="thumb">
-            <video autoplay muted loop playsinline>
-                <source src="shorts2-preview.mp4" type="video/mp4">
-            </video>
-            <div class="motion-title">SHORTS</div>
+      <div class="thumb">
+        <img src="https://img.youtube.com/vi/Pjg756CG8ZQ/maxresdefault.jpg" alt="Shorts">
+        <div class="thumb-overlay">
+          <div class="thumb-title">SHORTS</div>
         </div>
-        <div class="card-content">
-            <button class="project-btn" onclick="openShort2()">Assistir Shorts →</button>
-        </div>
+      </div>
+      <div class="card-content">
+        <button class="project-btn" onclick="openVideo('Pjg756CG8ZQ', true)">Assistir Shorts →</button>
+      </div>
     </div>
 
-    <!-- NOVO CARD 6 - GAMEPLAY -->
+    <!-- Gameplay -->
     <div class="card">
-        <div class="thumb">
-            <video autoplay muted loop playsinline>
-                <source src="gameplay-preview.mp4" type="video/mp4">
-            </video>
-            <div class="motion-title">GAMEPLAY</div>
+      <div class="thumb">
+        <img src="https://img.youtube.com/vi/BAyY7gAjaFc/maxresdefault.jpg" alt="Gameplay">
+        <div class="thumb-overlay">
+          <div class="thumb-title">GAMEPLAY</div>
         </div>
-        <div class="card-content">
-            <button class="project-btn" onclick="openGameplay()">Assistir Projeto →</button>
-        </div>
+      </div>
+      <div class="card-content">
+        <button class="project-btn" onclick="openVideo('BAyY7gAjaFc', false)">Assistir Projeto →</button>
+      </div>
     </div>
 
-</div>
+    <!-- NOVO Shorts -->
+    <div class="card">
+      <div class="thumb">
+        <img src="https://img.youtube.com/vi/w8H5vQQnTPM/maxresdefault.jpg" alt="Shorts">
+        <div class="thumb-overlay">
+          <div class="thumb-title">SHORTS</div>
+        </div>
+      </div>
+      <div class="card-content">
+        <button class="project-btn" onclick="openVideo('w8H5vQQnTPM', true)">Assistir Shorts →</button>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <section id="contato" class="contact">
-<h2>Vamos Trabalhar Juntos</h2>
-<p>Entre em contato para projetos, freelas e parcerias.</p>
-<a href="https://www.instagram.com/kayz_oficial" target="_blank" class="btn">Instagram →</a>
+  <h2>Vamos Trabalhar Juntos</h2>
+  <p>Entre em contato para projetos, freelas e parcerias.</p>
+  <a href="https://www.instagram.com/kayz_oficial" target="_blank" class="btn">Instagram →</a>
 </section>
 
-<footer>© 2026 Kayz — Motion Designer & Video Editor</footer>
+<footer>
+  © 2026 Kayz — Motion Designer & Video Editor
+</footer>
 
-<!-- ==================== MODAIS ==================== -->
-
-<!-- Modal Motion -->
+<!-- Modal único (mais limpo) -->
 <div class="video-modal" id="videoModal">
-    <div class="video-wrapper">
-        <button class="close-video" onclick="closeVideo()">×</button>
-        <iframe id="ytPlayer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-</div>
-
-<!-- Modal Shorts 1 -->
-<div class="video-modal" id="shortModal">
-    <div class="short-wrapper">
-        <button class="close-video" onclick="closeShort()">×</button>
-        <iframe id="shortPlayer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-</div>
-
-<!-- Modal Motion Dinâmico -->
-<div class="video-modal" id="motionDinamicoModal">
-    <div class="short-wrapper">
-        <button class="close-video" onclick="closeMotionDinamico()">×</button>
-        <iframe id="motionDinamicoPlayer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-</div>
-
-<!-- Modal Edição YouTube -->
-<div class="video-modal" id="youtubeEditionModal">
-    <div class="video-wrapper">
-        <button class="close-video" onclick="closeYoutubeEdition()">×</button>
-        <iframe id="youtubeEditionPlayer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-</div>
-
-<!-- Modal Shorts 2 (novo) -->
-<div class="video-modal" id="short2Modal">
-    <div class="short-wrapper">
-        <button class="close-video" onclick="closeShort2()">×</button>
-        <iframe id="short2Player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-</div>
-
-<!-- Modal Gameplay (novo) -->
-<div class="video-modal" id="gameplayModal">
-    <div class="video-wrapper">
-        <button class="close-video" onclick="closeGameplay()">×</button>
-        <iframe id="gameplayPlayer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
+  <div id="modalContent" class="video-wrapper">
+    <button class="close-video" onclick="closeVideo()">×</button>
+    <iframe id="player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
 </div>
 
 <script>
-// ==================== FUNÇÕES DOS MODAIS ====================
+function openVideo(id, isShort = false) {
+  const modal = document.getElementById('videoModal');
+  const content = document.getElementById('modalContent');
+  const player = document.getElementById('player');
 
-// Motion
-function openVideo(){
-    document.getElementById('videoModal').classList.add('active');
-    document.getElementById('ytPlayer').src = 'https://www.youtube.com/embed/_ilK1pVqurs?autoplay=1';
-}
-function closeVideo(){
-    document.getElementById('videoModal').classList.remove('active');
-    document.getElementById('ytPlayer').src = '';
-}
-
-// Shorts 1
-function openShort(){
-    document.getElementById('shortModal').classList.add('active');
-    document.getElementById('shortPlayer').src = 'https://www.youtube.com/embed/5TxD5f9-h1A?autoplay=1';
-}
-function closeShort(){
-    document.getElementById('shortModal').classList.remove('active');
-    document.getElementById('shortPlayer').src = '';
+  // Define o formato correto
+  content.className = isShort ? 'short-wrapper' : 'video-wrapper';
+  
+  player.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+  modal.classList.add('active');
 }
 
-// Motion Dinâmico
-function openMotionDinamico(){
-    document.getElementById('motionDinamicoModal').classList.add('active');
-    document.getElementById('motionDinamicoPlayer').src = 'https://www.youtube.com/embed/VCnw2oIrcZ8?autoplay=1';
-}
-function closeMotionDinamico(){
-    document.getElementById('motionDinamicoModal').classList.remove('active');
-    document.getElementById('motionDinamicoPlayer').src = '';
-}
-
-// Edição YouTube
-function openYoutubeEdition(){
-    document.getElementById('youtubeEditionModal').classList.add('active');
-    document.getElementById('youtubeEditionPlayer').src = 'https://www.youtube.com/embed/Aa0JISXubxY?autoplay=1';
-}
-function closeYoutubeEdition(){
-    document.getElementById('youtubeEditionModal').classList.remove('active');
-    document.getElementById('youtubeEditionPlayer').src = '';
-}
-
-// Shorts 2 (novo)
-function openShort2(){
-    document.getElementById('short2Modal').classList.add('active');
-    document.getElementById('short2Player').src = 'https://www.youtube.com/embed/Pjg756CG8ZQ?autoplay=1';
-}
-function closeShort2(){
-    document.getElementById('short2Modal').classList.remove('active');
-    document.getElementById('short2Player').src = '';
-}
-
-// Gameplay (novo)
-function openGameplay(){
-    document.getElementById('gameplayModal').classList.add('active');
-    document.getElementById('gameplayPlayer').src = 'https://www.youtube.com/embed/BAyY7gAjaFc?autoplay=1';
-}
-function closeGameplay(){
-    document.getElementById('gameplayModal').classList.remove('active');
-    document.getElementById('gameplayPlayer').src = '';
+function closeVideo() {
+  const modal = document.getElementById('videoModal');
+  const player = document.getElementById('player');
+  modal.classList.remove('active');
+  player.src = '';
 }
 
 // Fechar clicando fora
-document.querySelectorAll('.video-modal').forEach(modal => {
-    modal.addEventListener('click', function(e){
-        if(e.target === this) {
-            const id = this.id;
-            if(id === 'videoModal') closeVideo();
-            else if(id === 'shortModal') closeShort();
-            else if(id === 'motionDinamicoModal') closeMotionDinamico();
-            else if(id === 'youtubeEditionModal') closeYoutubeEdition();
-            else if(id === 'short2Modal') closeShort2();
-            else if(id === 'gameplayModal') closeGameplay();
-        }
-    });
+document.getElementById('videoModal').addEventListener('click', function(e) {
+  if (e.target === this) closeVideo();
 });
 
 // Fechar com ESC
-document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){
-        closeVideo();
-        closeShort();
-        closeMotionDinamico();
-        closeYoutubeEdition();
-        closeShort2();
-        closeGameplay();
-    }
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeVideo();
 });
 </script>
 </body>
